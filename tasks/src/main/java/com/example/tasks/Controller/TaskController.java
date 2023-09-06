@@ -27,4 +27,9 @@ public class TaskController {
     public Task updateTask(@PathVariable int id ,@RequestBody Task task) {
         return repository.save(task);
     }
+
+    @DeleteMapping("/task/{id}")
+    public void deleteTask(@PathVariable("id") Long id) {
+        repository.deleteById(id);
+    }
 }
