@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api")
@@ -17,6 +18,12 @@ public class TaskController {
     public List<Task> allTasks(){
         return repository.findAll();
     }
+
+    @GetMapping("/task/{id}")
+    public Optional<Task> findByName(@PathVariable("id") Long id) {
+        return repository.findById(id);
+    }
+
 
     @PostMapping("/task")
     public Task createTask(@RequestBody Task task) {
