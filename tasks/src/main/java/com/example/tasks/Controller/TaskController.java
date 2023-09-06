@@ -22,4 +22,9 @@ public class TaskController {
     public Task createTask(@RequestBody Task task) {
         return repository.save(task);
     }
+
+    @PutMapping("/task/{id}")
+    public Task updateTask(@PathVariable int id ,@RequestBody Task task) {
+        return repository.save(task);
+    }
 }
